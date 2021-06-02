@@ -1,0 +1,1195 @@
+/*! HTML5 Boilerplate v7.2.0 | MIT License | https://html5boilerplate.com/ */
+
+/* main.css 2.0.0 | MIT License | https://github.com/h5bp/main.css#readme */
+/*
+ * What follows is the result of much research on cross-browser styling.
+ * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+ * Kroc Camen, and the H5BP dev community and team.
+ */
+/* ==========================================================================
+   Base styles: opinionated defaults
+   ========================================================================== */
+
+   html {
+    color: #222;
+    font-size: 1em;
+    line-height: 1.4;
+  }
+  html {
+    box-sizing: border-box;
+  }
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+  
+  /*
+   * Remove text-shadow in selection highlight:
+   * https://twitter.com/miketaylr/status/12228805301
+   *
+   * Vendor-prefixed and regular ::selection selectors cannot be combined:
+   * https://stackoverflow.com/a/16982510/7133471
+   *
+   * Customize the background color to match your design.
+   */
+  
+  ::-moz-selection {
+    background: #b3d4fc;
+    text-shadow: none;
+  }
+  
+  ::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+  }
+  
+  /*
+   * A better looking default horizontal rule
+   */
+  
+  hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+  }
+  
+  /*
+   * Remove the gap between audio, canvas, iframes,
+   * images, videos and the bottom of their containers:
+   * https://github.com/h5bp/html5-boilerplate/issues/440
+   */
+  
+  audio,
+  canvas,
+  iframe,
+  img,
+  svg,
+  video {
+    vertical-align: middle;
+  }
+  
+  /*
+   * Remove default fieldset styles.
+   */
+  
+  fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /*
+   * Allow only vertical resizing of textareas.
+   */
+  
+  textarea {
+    resize: vertical;
+  }
+  
+  /* ==========================================================================
+     Browser Upgrade Prompt
+     ========================================================================== */
+  
+  .browserupgrade {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+  }
+  
+  /* ==========================================================================
+     Author's custom styles
+     ========================================================================== */
+     
+     // MOBILE FIRST DESIGN
+    /*_______________________________________________*/
+    /* // Global Css // */
+    .container {
+        width: 93%;
+        margin: 0 auto;
+    }
+    h1, h2, h3, h4 {
+      // Default titles styles
+      font-family: 'Roboto', sans-serif;
+      letter-spacing: 1px;
+      font-weight: bold;
+    }
+    p, label, span, a {
+      // Default text styles
+      font-family: 'Lato', sans-serif;
+      letter-spacing: 1px;
+      color: #000000;
+      font-size: 1rem;
+    }
+    /*_______________________________________________*/
+    /* _____// Mixins //_____ */
+    @mixin responsive($screen) {
+      @if $screen == phone {
+        @media only screen and (max-width: 600px){@content};
+      }
+      @if $screen == portrait-tablet {
+        @media only screen and (min-width: 600px){@content};
+      }
+      @if $screen == land-scape-tablet {
+        @media only screen and (min-width: 768px){@content};
+      }
+      @if $screen == laptop {
+        @media only screen and (min-width: 992x){@content};
+      }
+      @if $screen == large-laptop {
+        @media only screen and (min-width: 1200px){@content};
+      }
+    }
+    /*_______________________________________________*/
+    /*_____// Header Css //_____ */
+
+    div.header-content {
+      // setting color to header top bar and
+      // size to cover all header content
+      background-color: rgba($color: #141414, $alpha: 1.0);
+      min-width: 100%;
+      height: auto;
+      padding-bottom: 45px;
+    }
+    div.header-top-bar img {
+      // setting size to header top bar image
+      width: 200px;
+    }
+    div.responsive-menu-btn li {
+      //seting color and size to responsive menu btn
+      color: #ffffff;
+      list-style: none;
+      font-size: 1.8rem;
+    }
+    div.header-top-bar {
+      // setting header top bar elements position and border on bottom
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba($color: #f3f3f3, $alpha: 0.7)
+    }
+    /* _____// Header Menu Css// _____ */
+    div.header-menu li a{
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 1.2rem;
+    }
+    div.header-menu li {
+      // removing list style to header menu elements
+      list-style: none;
+    }
+    div.header-menu li {
+      // changing menu elements orientation to horizontal
+      display: inline-block;
+      padding-left: 50px;
+    }
+    /* Social media and Bar Menu Css*/
+    li.social-media i {
+      //setting social media list elements styles
+      color: #ffffff;
+      font-size: 1.2rem;
+    }
+    li.menu-icon i {
+      // color to menu bar icon
+      font-size: 1.9rem;
+      color: #ffffff;
+    }
+    nav.header-nav .underline::after{
+      // Underline hover style
+      content: '';
+      display: block;
+      width: 0;
+      height: 2px;
+      background: #eeea04;
+      transition: width .3s;
+    }
+    nav.header-nav .underline:hover::after {
+      // Hover
+      width: 100%;
+      transition: width .3s;
+    }
+    li.social-media i:hover {
+      color: #eeea04;
+      transition: all .3s ease-in-out ;
+    }
+    div.responsive-menu-btn .social-media,
+    div.header-menu {
+      // hidding social media icons on the next size screens:
+      @include responsive(phone) {
+        display: none;
+      }
+      @include responsive(portrait-tablet) {
+        display: none;
+      }
+      @include responsive(land-scape-tablet) {
+        // showing social media icons on inline-block so it appears horizontal
+        display: inline-block;
+      }
+      @include responsive(laptop) {
+        // showing social media icons on inline-block so it appears horizontal
+        display: inline-block;
+      }
+      @include responsive(large-laptop) {
+        // showing social media icons on inline-block so it appears horizontal
+        display: inline-block;
+        padding-left: 35px;
+      }
+    }
+    div.responsive-menu-btn .menu-icon {
+      // hiding bars menu btn on bigger screens
+      @include responsive(laptop) {
+        display: none;
+      }
+      @include responsive(large-laptop) {
+        display: none;
+      }
+    }
+    // === Responsive Button === //
+  
+    // === End of responsive Button === //
+    nav.header-nav li:first-child {
+      // removing padding from first element on header nav
+      padding-left: 0;
+    }
+    /* // Header Quote Slider Css // */
+    div.header-quote-slider {
+      // setting height so it doesnt move down when text is large
+      height: 80px;
+      padding-top: 15px;
+    }
+    div.header-quote-slider blockquote {
+      // setting width and centering text on the screen
+      width: 100%;
+      text-align: center;
+    }
+    div.header-quote-slider {
+      // seting blockquote and elements position
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    span.quote-sym {
+      // adding color and separation between "" and text
+      color: #eeea04;
+      padding: 0 5px;
+    }
+    span.text-1,
+    span.text-2 {
+      // color and size to text
+      color: #ffffff;
+      font-size: 1.1rem;
+
+      @include responsive(large-laptop) {
+        font-size: 1.8rem;
+      }
+    }
+    blockquote.mySlides {
+      // removing margin so text can use more space
+      margin: 0;
+    }
+    /* // Header Main Content Css // */
+    div.header-main-content {
+      // adding top separation
+      margin-top: 20px;
+    }
+    div.post-element img {
+      // setting size to all pictures in header main content
+      width: 340px;
+      @include responsive(large-laptop) {
+        width: 350px;
+      }
+    }
+    div.header-main-content {
+      // setting elements position on center
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    div.post-element {
+      // setting grid configuration
+      margin: 0 15px;
+      display: grid;
+      justify-content: center;
+      grid-gap: 5px;
+      grid-template-columns: repeat(1, 1fr);
+      grid-template-rows: repeat(1, auto);
+  
+      grid-template-areas: "element-1"
+                           "element-2"
+                           "element-3"
+                           "element-4"
+                           "element-6"
+                           "element-7"
+                           "element-8"
+                           "element-5";
+
+      @include responsive(land-scape-tablet) {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(4 auto);
+
+        grid-template-areas: "element-1 element-2"
+                             "element-4 element-3"
+                             "element-6 element-5"
+                             "element-7 element-8";
+      }
+
+      @include responsive(large-laptop) {
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(2 auto);
+
+        grid-template-areas: "element-1 element-2 element-3 element-4"
+                             "element-5 element-6 element-7 element-8";
+      }
+    }
+    div.element-1,
+    div.element-2,
+    div.element-3,
+    div.element-4,
+    div.element-5,
+    div.element-6,
+    div.element-7,
+    div.element-8 {
+      // setting elements as a container for image and text 
+      position: relative;
+      overflow: hidden;
+    }
+    div.element-1 p,
+    //div.element-2 p,
+    div.element-3 p,
+    //div.element-4 p,
+    //div.element-5 p,
+    div.element-6 p,
+    //div.element-7 p,
+    div.element-8 p {
+      // seting elements position on container element 1 
+      position: absolute;
+      bottom: 0;
+      // setting style to text, size and padding for p tag bar
+      font-size: 1rem;
+      color: #f3f3f3;
+      background-color: rgba($color: #151515, $alpha: 0.8);
+      width: 100%;
+      margin: 0;
+      padding: 15px 5px;
+    }
+    div.element-1 img,
+    //div.element-2 img,
+    div.element-3 img,
+    //div.element-4 img,
+    //div.element-5 img,
+    div.element-6 img,
+    //div.element-7 img,
+    div.element-8 img {
+      // Image size to squares with img
+      // width at 100% helps the grid to keep the gap in the same size
+      // because text squares on header move others images
+      height: 100%;
+      width: 100%;
+      // seting a grayscale over pictures for a drak effect
+      filter: gray;
+      -webkit-filter: grayscale(.4); //turning img in black n white color
+      -webkit-transition: all .4s ease-in-out;
+      overflow: hidden;
+    }  
+    div.element-1 img:hover,
+    //div.element-2 img:hover,
+    div.element-3 img:hover,
+    //div.element-4 img:hover,
+    //div.element-5 img:hover,
+    div.element-6 img:hover,
+    //div.element-7 img:hover,
+    div.element-8 img:hover  {
+    // hover effect to main content images
+    -webkit-filter: grayscale(0);
+    -webkit-transform: scale(1.1);
+    transition: all .3s ease-in-out;
+    } 
+    div.element-1 {
+      grid-area: element-1;
+    }
+    div.element-2 {
+      grid-area: element-2;
+    }
+    div.element-3 {
+      grid-area: element-3;
+    }
+    div.element-4 {
+      grid-area: element-4;
+    }
+    div.element-5 {
+      grid-area: element-5;
+    }
+    div.element-6 {
+      grid-area: element-6;
+    }
+    div.element-7 {
+      grid-area: element-7;
+    }
+    div.element-8 {
+      grid-area: element-8;
+    }
+    div.header-main-content {
+      // space on the bottom to post elements
+      padding-bottom: 15px;
+    }
+    div.element-2,
+    div.element-4,
+    div.element-5,
+    div.element-7 {
+      // setting text position on each square
+      // and backgrund color only for element 2
+      background-color: rgba($color: #eeea04, $alpha: 1.0);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: bold;
+      padding: 5px;
+      //setting size to squares on smaller screens so it doesnt look flat
+      @include responsive(phone) {
+        height: 212px;
+      }
+    }
+    div.element-2 {
+      // background to element 2
+      background: rgb(255, 66, 75);
+    }
+    div.element-2 p,
+    div.element-7 p {
+      color: #ffffff;
+    }
+    div.element-4 {
+      // setting background color for element 4
+      background: rgb(255, 135, 22);
+
+    }
+    div.element-5 {
+      // setting background color for element 5
+      background-color: rgba($color: #ffffff, $alpha: 1.0);
+    }
+    div.element-7 {
+      // setting background color for element 7
+      background-color: rgba($color: #2191c5, $alpha: 1.0);
+    }
+    div.element-2 p,
+    div.element-4 p,
+    div.element-5 p,
+    div.element-7 p {
+      // style to text squares
+      font-size: 1.7rem;
+      text-align: center; 
+      font-weight: bold;
+    }
+    div.element-2 a,
+    div.element-4 a,
+    div.element-5 a,
+    div.element-7 a {
+      text-decoration: none;
+    }
+
+    div.element-4 p {
+      // color to element 5 square texr
+      color: rgba($color:  #ffffff, $alpha: 1.0);    
+      font-weight: bold; 
+    }
+    div.element-5 p {
+      // color to element 5 square texr
+      color: rgba($color:  #3b5998, $alpha: 1.0);
+    }
+    /*_______________________________________________*/
+    /*_____// Main Content Css //_____*/
+    section.detail-text {
+      background-color: rgba($color: #141414, $alpha: 0.95);
+      width: 100%;
+    }
+    section.detail-text h1 {
+      // style and position to detail text header
+      font-weight: bold;
+      font-size: 2.8rem;
+      text-align: center;
+      color: #ffffff;
+      margin: 18px 0;
+    }
+    section.detail-text p {
+      font-size: 1.1rem;
+      color: #ffffff;
+
+      @include responsive(phone) {
+        padding: 0 10px;
+        text-align: center;
+      }
+      @include responsive(portrait-tablet) {
+        padding: 0 40px;
+      }
+      @include responsive(large-laptop) {
+        padding: 0 150px;
+      }
+    }
+    section.detail-text {
+      padding: 50px 0;
+    }
+    /* ===== Steps Section Css ===== */
+    section.steps-section {
+      // background color to all steps section
+      background-color: rgba($color: #141414, $alpha: 1.0);
+      padding: 50px 0;
+    }
+    div.steps-content {
+      // adding top separation from the top line border
+      padding: 20px 0;
+      display: grid;
+      justify-content: center;
+      grid-gap: 10px;
+      grid-template-columns: repeat(1, 1fr);
+      grid-template-rows: repeat(3, auto);
+      grid-template-areas: "step-1"
+                           "step-2"
+                           "step-3";                   
+
+      @include responsive(large-laptop) {
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(1, auto);  
+      grid-template-areas: "step-1 step-2 step-3";
+      }                 
+
+    }
+    div.steps-1 {
+      // color and separation around the container for steps and setting grid area
+      background-color: rgba($color: #eeea04, $alpha: 1.0);
+      padding: 20px;
+      grid-area: step-1;
+    } 
+    div.steps-2 {
+      // color and separation around the container for steps and setting grid area      
+      background-color: rgba($color: #eeea04, $alpha: 1.0);
+      padding: 20px;
+      grid-area: step-2;
+    }
+    div.steps-3 {
+      // color and separation around the container for steps and setting grid area      
+      background-color: rgba($color: #eeea04, $alpha: 1.0);
+      padding: 20px;
+      grid-area: step-3;
+    }
+    div.steps-1,
+    div.steps-2,
+    div.steps-3 {
+      @include responsive(portrait-tablet) {
+        // changing steps size on medium screens
+        width: 85%;
+        margin: 0 auto;
+      }
+    }
+    section.steps-section h1 {
+      //Aligning h1 text to center
+      text-align: center;
+      margin: 0;
+      padding-bottom: 20px;
+      color: #ffffff;
+      letter-spacing: 3px;
+    }
+    div.steps-1-title h3 {
+      //font size to h3 text
+      font-size: 1.4rem;
+      text-align: center;
+    }
+    div.steps-1 img,
+    div.steps-2 img,
+    div.steps-3 img {
+      // size to img and positioning image
+      width: 80%;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      @include responsive(portrait-tablet) {
+        // sizing images for smaller screens
+        width: 20%;
+      }
+
+      @include responsive(large-laptop) {
+        // sizing images for larger screens
+        width: 50%;
+      }
+    }
+    div.steps-1-links a {
+      // removing text underline
+      text-decoration: none;
+      text-align: center;
+    }
+    div.steps-1-links a:hover {
+      font-weight: bold;
+    }
+    div.steps-1-links li {
+      // removing list style
+      list-style: none;
+    }
+    div.steps-1-links ul {
+      // removing default padding from ul
+      padding: 0;
+      text-align: center;
+    }
+    /* ===== Blog Section Css ===== */
+    section.blog-section {
+      background-color: rgba($color: #141414, $alpha: 0.95);
+    }
+    div.section-title h1 {
+      // positioning and font size to section title
+      text-align: center;
+      font-size: 2.6rem;
+      color: #ffffff;
+      margin-bottom: 0;
+    }
+    div.blog-section-title p {
+      // position to blog section description 
+      text-align: center;
+      color: #ffffff;
+      margin-top: 0;
+    }
+    div.blog-section-title p.recent-post-title {
+      // position to recent text div
+      text-align: left;
+      border-bottom: 1px solid rgba($color: #dfdfdf, $alpha: 0.2);
+      margin-top: 30px;
+    }
+    div.blog-post-title h3 {
+      // removing default margin to h3 so is align with the top of img
+      margin: 0;
+      color: rgba($color: #eeea04, $alpha: 1.0);
+    }
+    div.blog-post-description p {
+      color: #ffffff;
+    }
+    div.blog-post-1 img,
+    div.blog-post-2 img,
+    div.blog-post-3 img,
+    div.blog-post-4 img {
+      // sizing images on blog post
+      width: 50%;
+
+      @include responsive(large-laptop){
+        width: 25%;
+      }
+    }
+    div.blog-post-1,
+    div.blog-post-2,
+    div.blog-post-3,
+    div.blog-post-4 {
+      // setting position to all posts
+      display: flex;
+      justify-content: center;
+    }
+    div.post-content {
+      // adding separation between img and text on blog posts
+      padding: 0 15px 15px 15px;
+    }
+    div.post-content:hover {
+      background-color: rgba($color: #f3f3f3, $alpha: 0.1);
+      transition: all .3s ease-in ;
+    }
+    div.blog-section-content {
+      display: grid;
+      justify-content: center;
+      grid-gap: 10px;
+      grid-template-columns: repeat(1, 1fr);
+      grid-template-rows: repeat(8, auto);
+      grid-template-areas: "section-title"
+                           "blog-section-title"
+                           "recent-post-title"
+                           "blog-post-1"
+                           "blog-post-2"
+                           "blog-post-3"
+                           "blog-post-4"
+                           "blog-btn";     
+
+      @include responsive(large-laptop) {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(7, auto);
+      grid-template-areas: "section-title section-title"
+                           "blog-section-title blog-section-title"
+                           "recent-post-title recent-post-title"
+                           "blog-post-1 blog-post-2"
+                           "blog-post-3 blog-post-4"
+                           "blog-btn blog-btn";                   
+      }
+    }
+    div.section-title {
+      // giving section-title grid value
+      grid-area: section-title;
+    }
+    div.blog-section-title {
+      // giving section-title grid value      
+      grid-area: blog-section-title;
+    }
+    div.recent-post-title {
+      // giving section-title grid value      
+      grid-area: recent-post-title;
+    }
+    div.blog-post-1 {
+      //giving blog-post-1 grid value
+      grid-area: blog-post-1;
+    }
+    div.blog-post-2 {
+      //giving blog-post-2 grid value
+      grid-area: blog-post-2;
+    }
+    div.blog-post-3 {
+      //giving blog-post-3 grid value
+      grid-area: blog-post-3;
+    }
+    div.blog-post-4 {
+      //giving blog-post-4 grid value
+      grid-area: blog-post-4;
+    }
+    div.blog-btn a {
+      // removing text underline, adding style and padding for size 
+      // adding margin for separation on top and bottom
+      text-decoration: none;
+      color: #ffffff;
+      font-size: 1.5rem;
+      font-weight: bold;
+      padding: 12px 50px;
+      margin: 50px 0;
+      background-color: rgba($color: #eeea04, $alpha: 1.0);
+      border-radius: 50px;
+
+      @include responsive(large-laptop) {
+        //Changing botton size for large laptop
+        padding: 10px 50px;
+        border-radius: 50px;
+        margin: 40px 0 35px 0;
+      }
+    }
+    a.read-post {
+      // Style to Read text link
+      text-decoration: none;
+      color: #eeea04;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      @include responsive(large-laptop) {
+        font-size: 1.1rem;
+      }
+    }
+    div.blog-btn {
+      // positioning button on center screen
+      grid-area: blog-btn;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    div.blog-btn a:hover {
+      background-color: rgba($color: #fffb00, $alpha: 0.8);
+      transition: all .3s ease-in;
+    }
+    /* ===== NEGOCIOS CSS ===== */
+    section.business-section {
+      // background color to negocios section
+      background-color: rgba($color: #141414, $alpha: 1.0);
+      padding-bottom: 50px;
+    }
+    div.business-section-content img {
+      // width 100% for images on phone screens and removing margin
+      width: 100%;
+      margin-top: 20px;
+
+      @include responsive(land-scape-tablet) {
+        // smaller size for laptop screens 
+        width: 50%;
+      }
+
+      @include responsive(large-laptop) {
+        // smaller size for laptop screens 
+        width: 80%;
+      }
+    }
+    div.business-section-content p {
+      // aligning text on all section content and adding color
+      text-align: center;
+      color: #ffffff;
+    }
+    div.business-title h1 {
+      // style to section title
+      color: #ffffff;
+      margin: 0;
+      padding: 25px 0;
+      text-align: center;
+      font-size: 2.6rem;
+    }
+    div.business-title p {
+      // removing separation from section title and description text
+      margin-top: 0px;
+    }
+    div.image-title p {
+      // style and size to text so it looks like a btn
+      color: #151515;
+      font-size: 1.2rem;
+      font-weight: bold;
+      background-color: rgba($color: #eeea04, $alpha: 1.0);
+      width: 55%;
+      margin: 0 auto;
+      padding: 10px;
+
+      @include responsive(land-scape-tablet) {
+        width: 30%;
+      }
+      @include responsive(large-laptop) {
+        width: 40%;
+      }
+    }
+    div.image-title p:first-child {
+      // changing marketing digital font size so text doesnt go down
+      @include responsive(land-scape-tablet) {
+        font-size: 1.1rem;
+      }
+      @include responsive(large-laptop) {
+        font-size: 1.1rem;
+      }
+    }
+    div.image-title a {
+      text-decoration: none;
+    }
+    div.business-section-content {
+      @include responsive(large-laptop) {
+      display: grid;
+      justify-content: center;
+      grid-gap: 10px;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(2, auto);
+      grid-template-areas:  "business-title business-title business-title"
+                            "digital-marketing seo trading";
+      }  
+    }
+    div.business-title {
+      grid-area: business-title;
+    }
+    div.digital-marketing {
+      grid-area: digital-marketing;
+    }
+    div.seo {
+      grid-area: seo;
+    }
+    div.trading {
+      grid-area: trading;
+    }
+    div.digital-marketing-image,
+    div.seo-image,
+    div.trading-image {
+      // placing images on center of the grid to keep alignment with the text btn
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    div.image-title a p{
+      border-radius: 5px;
+    }
+    div.image-title p:hover {
+      background-color: rgba($color: #fffb00, $alpha: 1.0);
+      transition: all .3s ease-in;
+    }
+
+    /* ===== Different Section Css ===== */
+    section.different {
+      position: relative;
+      background: url(../img/parallax.jpg);
+      background-position: center;
+      background-size: cover;
+      height: auto;
+      z-index: 2;
+      min-height: 400px;
+      @include responsive(large-laptop) {
+        min-height: 450px;
+      }
+    }
+    div.different-text {
+      position: absolute;
+      z-index: 1;
+    }
+    div.different-title h1 {
+      color: #ffffff;
+      text-align: center;
+      margin: 0;
+      padding: 50px 0;
+      @include responsive(large-laptop) {
+        font-size: 2.6rem;
+      }
+    }
+    div.different-text p {
+      color: #ffffff;
+      padding: 0 10px;
+      font-size: 1.1rem;
+    }
+    div.money-parallax img {
+      position: absolute;
+      width: 100%;
+      height: 40%;
+      background-position: center;
+      background-size: cover;
+    }
+    /*===== Footer Css =====*/
+    footer.site-footer {
+      // color to footer and height
+      background-color: rgba($color: #141414, $alpha: 1.0);
+      height: 400px;
+      // fixing footer elements position
+      display: block;
+      justify-content: center;
+      text-align: center;
+
+      position: absolute;
+      width: 100%;
+      z-index: 2;
+      // position: relative;
+      // border: 0;
+      // top: 0;
+      // right: 0;
+      // left: 0;
+    }
+    footer.site-footer img {
+      width: 150px;
+      height: auto;
+    }
+    div.footer-nav ul {
+      // removing default spaces to ul
+      margin: 0;
+      padding: 0;
+    }
+    div.footer-nav a{
+      // color to nav menu and removing text default underline
+      color: #ffffff;
+      text-decoration: none;
+    }
+    div.footer-nav a:hover {
+      color: rgba($color: #eeea04, $alpha: 1.0);
+      transition: all .2s ease-in;
+    }
+    div.footer-social-media {
+      // removing list style
+      list-style: none;
+      padding-bottom: 50px;
+    }
+    div.footer-nav {
+      // adding separation between footer divs
+      padding: 50px 0;
+    }
+    div.footer-nav li,
+    div.footer-social-media li {
+      // changin orientation to horizontal
+      display: inline-block;
+    }
+    div.footer-nav li {
+      // adding separation between text elements and sizing 
+      padding-right: 10px;
+      font-weight: bold;
+    }
+    div.footer-nav li a {
+      font-size: 1.1rem;
+      @include responsive(large-laptop) {
+        font-size: 1.4rem;
+      }
+      @include responsive(portrait-laptop) {
+        font-size: 1.4rem;
+      }
+      @include responsive(land-scape-tablet) {
+        font-size: 1.4rem;
+      }
+    }
+    div.footer-nav li:last-child {
+      // removing padding from last element and keeping all centered
+      padding-right: 0;
+    }
+
+    div.footer-social-media li {
+      margin-right: 15px;
+      padding: 10px 15px;
+      background-color: rgba($color: #eeea04, $alpha: 1.0);
+      border-radius: 55px;
+    }
+    div.footer-social-media li:last-child {
+      margin-right: 0;
+    }
+    div.footer-social-media i{
+      color: #141414;
+      font-size: 1.4rem;
+      font-weight: bold;
+    }
+    div.footer-social-media li:hover {
+      background-color: rgba($color: #eeea04, $alpha: 0.8);
+    }
+    div.copy p {
+      color: #ffffff;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin-top: 80px;
+    }
+
+  /* ==========================================================================
+     Helper classes
+     ========================================================================== */
+  
+  /*
+   * Hide visually and from screen readers
+   */
+  
+  .hidden {
+    display: none !important;
+  }
+  
+  /*
+  * Hide only visually, but have it available for screen readers:
+  * https://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+  *
+  * 1. For long content, line feeds are not interpreted as spaces and small width
+  *    causes content to wrap 1 word per line:
+  *    https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe
+  */
+  
+  .sr-only {
+    border: 0;
+    clip: rect(0, 0, 0, 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+    /* 1 */
+  }
+  
+  /*
+  * Extends the .sr-only class to allow the element
+  * to be focusable when navigated to via the keyboard:
+  * https://www.drupal.org/node/897638
+  */
+  
+  .sr-only.focusable:active,
+  .sr-only.focusable:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    white-space: inherit;
+    width: auto;
+  }
+  
+  /*
+  * Hide visually and from screen readers, but maintain layout
+  */
+  
+  .invisible {
+    visibility: hidden;
+  }
+  
+  /*
+  * Clearfix: contain floats
+  *
+  * For modern browsers
+  * 1. The space content is one way to avoid an Opera bug when the
+  *    `contenteditable` attribute is included anywhere else in the document.
+  *    Otherwise it causes space to appear at the top and bottom of elements
+  *    that receive the `clearfix` class.
+  * 2. The use of `table` rather than `block` is only necessary if using
+  *    `:before` to contain the top-margins of child elements.
+  */
+  
+  .clearfix:before,
+  .clearfix:after {
+    content: " ";
+    /* 1 */
+    display: table;
+    /* 2 */
+  }
+  
+  .clearfix:after {
+    clear: both;
+  }
+  
+  /* ==========================================================================
+     EXAMPLE Media Queries for Responsive Design.
+     These examples override the primary ('mobile first') styles.
+     Modify as content requires.
+     ========================================================================== */
+  
+  @media only screen and (min-width: 35em) {
+    /* Style adjustments for viewports that meet the condition */
+  }
+  
+  @media print,
+    (-webkit-min-device-pixel-ratio: 1.25),
+    (min-resolution: 1.25dppx),
+    (min-resolution: 120dpi) {
+    /* Style adjustments for high resolution devices */
+  }
+  
+  /* ==========================================================================
+     Print styles.
+     Inlined to avoid the additional HTTP request:
+     https://www.phpied.com/delay-loading-your-print-css/
+     ========================================================================== */
+  
+  @media print {
+    *,
+    *:before,
+    *:after {
+      background: transparent !important;
+      color: #000 !important;
+      /* Black prints faster */
+      -webkit-box-shadow: none !important;
+      box-shadow: none !important;
+      text-shadow: none !important;
+    }
+    a,
+    a:visited {
+      text-decoration: underline;
+    }
+    a[href]:after {
+      content: " (" attr(href) ")";
+    }
+    abbr[title]:after {
+      content: " (" attr(title) ")";
+    }
+    /*
+       * Don't show links that are fragment identifiers,
+       * or use the `javascript:` pseudo protocol
+       */
+    a[href^="#"]:after,
+    a[href^="javascript:"]:after {
+      content: "";
+    }
+    pre {
+      white-space: pre-wrap !important;
+    }
+    pre,
+    blockquote {
+      border: 1px solid #999;
+      page-break-inside: avoid;
+    }
+    /*
+       * Printing Tables:
+       * https://web.archive.org/web/20180815150934/http://css-discuss.incutio.com/wiki/Printing_Tables
+       */
+    thead {
+      display: table-header-group;
+    }
+    tr,
+    img {
+      page-break-inside: avoid;
+    }
+    p,
+    h2,
+    h3 {
+      orphans: 3;
+      widows: 3;
+    }
+    h2,
+    h3 {
+      page-break-after: avoid;
+    }
+  }
+  
+  
